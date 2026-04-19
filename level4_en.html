@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LEVEL 4: The Great Crisis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <img id="scene-image" src="" alt="The Established System">
+        <div id="story-content">
+            <h2>The Great Crisis</h2>
+            <p>Sponsors found with the support of the Parent-Teacher Association helped both in the installation of smart systems and the creation of the permaculture garden. While everything was going well, news from the municipality came as a shock: the green area adjacent to the school was put up for sale for a private parking lot project. The Eco Team's hard work was in jeopardy.</p>
+            <div class="dialogue mert"><strong>Mert:</strong> "Okay, there is a parking problem in our neighborhood, but I still can't accept that all our hard work is being sacrificed for a pile of concrete."</div>
+            <div class="dialogue zeynep"><strong>Zeynep:</strong> "No giving up, friends! We will either start a legal process or run a campaign on social media with public support."</div>
+        </div>
+        <button class="choice-btn" onclick="secimYap('results_en.html', 's4', 'D1')">A: Legal Path – Prepare a report for official authorities and initiate a legal process.</button>
+        <button class="choice-btn" onclick="secimYap('results_en.html', 's4', 'D2')">B: Public Support – Force the municipality to back down with a creative social media campaign.</button>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const s3 = urlParams.get('s3');
+        // Image mapping updated based on previous scene names
+        document.getElementById('scene-image').src = s3 === 'C1' 
+            ? "back to earth.png" 
+            : "Technology and Efficiency.png";
+
+        function secimYap(hedef, key, value) {
+            urlParams.set(key, value);
+            window.location.href = hedef + '?' + urlParams.toString();
+        }
+    </script>
+</body>
+</html>

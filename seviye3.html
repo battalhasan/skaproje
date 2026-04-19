@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>SEVİYE 3: Vizyon Belirleme</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <img id="scene-image" src="" alt="Başarı Görseli">
+        <div id="story-content">
+            <h2>Fon Yönetimi ve Büyüme</h2>
+            <p>Okul idaresi yapılan çalışmaları ve olumlu sonuçlarını gördü. Okul Aile Birliği ile projeyi desteklemek için bir bütçe ayırdı.</p>
+            <div class="dialogue mert"><strong>Mert:</strong> "Bu para bizim dönüm noktamız. Öyle bir şey yapmalıyız ki, hem ses getirmeli hem de başarılı olmalı. Böylece bundan sonraki projelerimiz için daha kolay kaynak bulabiliriz. Peki ne yapalım?"</div>
+            <div class="dialogue elif"><strong>Elif:</strong> "Okulun yanındaki yeşil alanda kendi gıdamızı yetiştireceğimiz bir bahçe kurmalıyız. Öğrenciler toprağa dokunmalı."</div>
+            <div class="dialogue zeynep"><strong>Zeynep:</strong> "Okulu geleceğe taşımalıyız. Enerji tüketimini azaltacak akıllı sistemler kurmalıyız."</div>
+        </div>
+        <button class="choice-btn" onclick="secimYap('seviye4.html', 's3', 'C1')">A: Toprağa Dönüş – Okul yanındaki yeşil alanda permakültür bahçesi kur.</button>
+        <button class="choice-btn" onclick="secimYap('seviye4.html', 's3', 'C2')">B: Teknoloji ve Verim – Dijital sistemler ve sensörlerle akıllı aydınlatma ve su sistemi kur.</button>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const s2 = urlParams.get('s2');
+        const img = document.getElementById('scene-image');
+        
+        if (s2 === 'A1') img.src = "prove with data.png";
+        else if (s2 === 'B1') img.src = "management pressure.png";
+        else if (s2 === 'A2') img.src = "Volunteer Army.png";
+        else if (s2 === 'B2') img.src = "great competition.png";
+
+        function secimYap(hedef, key, value) {
+            urlParams.set(key, value);
+            window.location.href = hedef + '?' + urlParams.toString();
+        }
+    </script>
+</body>
+</html>

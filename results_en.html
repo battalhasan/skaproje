@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FINAL AND REPORT CARD</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .ska-etiket {
+            display: inline-block;
+            background-color: #27ae60;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .ska-etiket:hover { background-color: #219653; }
+        .final-detay {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2980b9;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <img id="scene-image" src="" alt="Final Visual">
+        <div id="story-content">
+            <h2 id="final-title">Calculating Results...</h2>
+            <p id="final-text"></p>
+            <div id="final-detail-box" class="final-detay"></div>
+            
+            <div class="karne-box">
+                <h3 style="color:#27ae60; margin-top:0;">📋 Performance Report Card</h3>
+                <ul id="karne-list" style="list-style-type: none; padding: 0;"></ul>
+            </div>
+        </div>
+        <button class="choice-btn" onclick="window.location.href='index.html'" style="text-align:center;">🔄 Restart the Challenge</button>
+    </div>
+
+    <script>
+        // URL'den seçimleri al
+        const urlParams = new URLSearchParams(window.location.search);
+        const s1 = urlParams.get('s1');
+        const s2 = urlParams.get('s2');
+        const s3 = urlParams.get('s3');
+        const s4 = urlParams.get('s4');
+
+        const titleEl = document.getElementById('final-title');
+        const textEl = document.getElementById('final-text');
+        const detailEl = document.getElementById('final-detail-box');
+        const imgEl = document.getElementById('scene-image');
+        const karneEl = document.getElementById('karne-list');
+
+        // Görseli belirle
+        imgEl.src = s4 === 'D1' ? "Diplomatic Resistance.png" : "Community Action.png";
+
+        // Final Senaryosu ve SDG Linkleri
+        if(s3 === 'C1' && s4 === 'D1') {
+            titleEl.innerText = "The Living School and a Shared Future";
+            textEl.innerHTML = "The municipal council was impressed by your scientific reports. The parking lot project was canceled.";
+            detailEl.innerHTML = `
+                <a href="https://sdgs.un.org/goals/goal11" target="_blank" class="ska-etiket">SDG 11: Sustainable Cities</a> 
+                <a href="https://sdgs.un.org/goals/goal12" target="_blank" class="ska-etiket">SDG 12: Responsible Consumption</a> 
+                <a href="https://sdgs.un.org/goals/goal16" target="_blank" class="ska-etiket">SDG 16: Strong Institutions</a><br><br>
+                <strong>Impact Analysis:</strong> You defended your space through <strong>collaboration (SDG 16)</strong> and created a <strong>sustainable living space (SDG 11)</strong>.
+            `;
+        } else if(s3 === 'C2' && s4 === 'D1') {
+            titleEl.innerText = "Technology Fortress and Green Innovation";
+            textEl.innerHTML = "Your energy reports convinced the mayor. The area is now the school's 'Green Technology Campus'.";
+            detailEl.innerHTML = `
+                <a href="https://sdgs.un.org/goals/goal9" target="_blank" class="ska-etiket">SDG 9: Innovation</a> 
+                <a href="https://sdgs.un.org/goals/goal13" target="_blank" class="ska-etiket">SDG 13: Climate Action</a><br><br>
+                <strong>Impact Analysis:</strong> You minimized the carbon footprint <strong>(SDG 13)</strong> through <strong>digital infrastructure (SDG 9)</strong>.
+            `;
+        } else if(s3 === 'C1' && s4 === 'D2') {
+            titleEl.innerText = "Ecological Resistance";
+            textEl.innerHTML = "Public pressure saved the garden! However, relations with the administration are slightly strained.";
+            detailEl.innerHTML = `
+                <a href="https://sdgs.un.org/goals/goal11" target="_blank" class="ska-etiket">SDG 11: Sustainable Cities</a> 
+                <a href="https://sdgs.un.org/goals/goal15" target="_blank" class="ska-etiket">SDG 15: Life on Land</a><br><br>
+                <strong>Impact Analysis:</strong> You protected the <strong>ecosystem (SDG 15)</strong> using community power and the <strong>right to the city (SDG 11)</strong>.
+            `;
+        } else {
+            titleEl.innerText = "Digital Storm Victory";
+            textEl.innerHTML = "Social media force won the day. But you missed the chance for institutional cooperation.";
+            detailEl.innerHTML = `
+                <a href="https://sdgs.un.org/goals/goal13" target="_blank" class="ska-etiket">SDG 13: Climate Action</a> 
+                <a href="https://sdgs.un.org/goals/goal17" target="_blank" class="ska-etiket">SDG 17: Partnerships (Failed)</a><br><br>
+                <strong>Impact Analysis:</strong> Great <strong>climate action (SDG 13)</strong> speed, but lacked <strong>partnerships (SDG 17)</strong>.
+            `;
+        }
+
+        // Karne Kısmı
+        let startPoint = s1 === 'A' 
+            ? "<strong>Canteen Intervention:</strong> High courage starting with commercial waste." 
+            : "<strong>In-Class Education:</strong> Bottom-up change through student awareness.";
+        
+        let durability = (s2 === 'A1' || s2 === 'A2') 
+            ? "<span style='color:green'>95% (Internalized)</span> - Success through persuasion." 
+            : "<span style='color:red'>40% (Authority Dependent)</span> - Success through rules.";
+
+        karneEl.innerHTML = `
+            <li>✔️ ${startPoint}</li>
+            <li>✔️ <strong>Sustainability Score:</strong> ${durability}</li>
+        `;
+    </script>
+</body>
+</html>

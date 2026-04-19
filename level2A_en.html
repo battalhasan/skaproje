@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LEVEL 2A: Canteen Challenge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <img id="scene-image" src="canteen.png" alt="Canteen Challenge">
+        <div id="story-content">
+            <h2>Canteen Challenge</h2>
+            <p>The meeting with the canteen manager, Mr. Kamil, was not very constructive. Mr. Kamil crossed his arms and pretended to listen politely to the Eco Team, but his body language clearly showed he didn't care about what was being said.</p>
+            <div class="dialogue kamil"><strong>Mr. Kamil:</strong> "Look kids, I'm running a business here. If I reduce portions, students won't feel full. If I use paper instead of plastic for packaging, my costs go up and sales go down. Besides, it’s my money going into the trash, why does it bother you?"</div>
+            <div class="dialogue mert"><strong>Mert:</strong> "It's not just your money going into the trash, Mr. Kamil; it's our future. And we will certainly take action for our future."</div>
+        </div>
+        <button class="choice-btn" onclick="secimYap('level3_en.html', 's2', 'A1')">A: Speak with Proof – Analyze the canteen trash for a week and calculate exactly how much money is being wasted.</button>
+        <button class="choice-btn" onclick="secimYap('level3_en.html', 's2', 'B1')">B: Management Pressure – Go to the Principal and push to add waste management rules to the canteen contract.</button>
+    </div>
+    <script>
+        function secimYap(hedef, key, value) {
+            const urlParams = new URLSearchParams(window.location.search);
+            urlParams.set(key, value);
+            window.location.href = hedef + '?' + urlParams.toString();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LEVEL 3: Vision Setting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <img id="scene-image" src="" alt="Success Visual">
+        <div id="story-content">
+            <h2>Fund Management and Growth</h2>
+            <p>The school administration saw the work being done and the positive results. Together with the Parent-Teacher Association, they allocated a budget to support the project.</p>
+            <div class="dialogue mert"><strong>Mert:</strong> "This money is our turning point. We must do something that creates an impact and is successful. That way, we can find resources more easily for our future projects. So, what should we do?"</div>
+            <div class="dialogue elif"><strong>Elif:</strong> "We should establish a garden in the green area next to the school where we can grow our own food. Students need to touch the soil."</div>
+            <div class="dialogue zeynep"><strong>Zeynep:</strong> "We must carry the school into the future. We should install smart systems that will reduce energy consumption."</div>
+        </div>
+        <button class="choice-btn" onclick="secimYap('level4_en.html', 's3', 'C1')">A: Back to Earth – Establish a permaculture garden in the green area next to the school.</button>
+        <button class="choice-btn" onclick="secimYap('level4_en.html', 's3', 'C2')">B: Technology and Efficiency – Install a smart lighting and water system with digital systems and sensors.</button>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const s2 = urlParams.get('s2');
+        const img = document.getElementById('scene-image');
+        
+        // Image mapping remains the same as these are global assets
+        if (s2 === 'A1') img.src = "prove with data.png";
+        else if (s2 === 'B1') img.src = "management pressure.png";
+        else if (s2 === 'A2') img.src = "Volunteer Army.png";
+        else if (s2 === 'B2') img.src = "great competition.png";
+
+        function secimYap(hedef, key, value) {
+            urlParams.set(key, value);
+            window.location.href = hedef + '?' + urlParams.toString();
+        }
+    </script>
+</body>
+</html>

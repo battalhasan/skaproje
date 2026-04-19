@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>FİNAL VE KARNE</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* SKA Etiketleri artık link olduğu için stil güncellendi */
+        .ska-etiket {
+            display: inline-block;
+            background-color: #27ae60;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            text-decoration: none; /* Link alt çizgisini kaldırır */
+            transition: background-color 0.3s;
+        }
+        .ska-etiket:hover {
+            background-color: #219653; /* Üzerine gelince biraz koyulaşır */
+        }
+        .final-detay {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2980b9;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <img id="scene-image" src="" alt="Final Görseli">
+        <div id="story-content">
+            <h2 id="final-title">Hesaplanıyor...</h2>
+            <p id="final-text"></p>
+            <div id="final-detail-box" class="final-detay"></div>
+            
+            <div class="karne-box">
+                <h3 style="color:#27ae60; margin-top:0;">📋 Performans ve Karakter Karnesi</h3>
+                <ul id="karne-list" style="list-style-type: none; padding: 0;"></ul>
+            </div>
+        </div>
+        <button class="choice-btn" onclick="window.location.href='index.html'" style="text-align:center;">🔄 Mücadeleyi Yeniden Başlat</button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const s1 = urlParams.get('s1');
+        const s2 = urlParams.get('s2');
+        const s3 = urlParams.get('s3');
+        const s4 = urlParams.get('s4');
+
+        const titleEl = document.getElementById('final-title');
+        const textEl = document.getElementById('final-text');
+        const detailEl = document.getElementById('final-detail-box');
+        const imgEl = document.getElementById('scene-image');
+        const karneEl = document.getElementById('karne-list');
+
+        // Resim Ayarı
+        imgEl.src = s4 === 'D1' 
+            ? "Diplomatic Resistance.png" 
+            : "Community Action.png";
+
+        // Final Sonu Hesaplama, SKA Bağlantıları ve Yönlendirmeler
+        if(s3 === 'C1' && s4 === 'D1') {
+            titleEl.innerText = "Yaşayan Okul ve Ortak Gelecek";
+            textEl.innerHTML = "Belediye meclisi, sunduğunuz bilimsel kompost raporunu ve yüzlerce imzalı dilekçeyi incelediğinde şaşkınlığını gizleyemedi. Karşısında sadece şikayet eden ergenler değil, çözüm üreten vizyoner gençler vardı. Otopark projesi oybirliğiyle iptal edildi.";
+            detailEl.innerHTML = `
+                <a href="https://turkiye.un.org/tr/sdgs/11" target="_blank" class="ska-etiket">SKA 11: Sürdürülebilir Şehirler</a> 
+                <a href="https://turkiye.un.org/tr/sdgs/12" target="_blank" class="ska-etiket">SKA 12: Sorumlu Tüketim</a> 
+                <a href="https://turkiye.un.org/tr/sdgs/16" target="_blank" class="ska-etiket">SKA 16: Güçlü Kurumlar</a><br><br>
+                <strong>Etki Analizi:</strong> Okul bahçesinde kurduğunuz permakültür alanı, tüm mahallenin atıklarını gübreye çevirdiği bir merkeze dönüştü. İhtiyaçlarınızı bağırarak değil, <strong>kurumlarla işbirliği (SKA 16)</strong> yaparak savundunuz. Artık okulunuz, betona karşı toprağı savunan <strong>sürdürülebilir bir yaşam alanına (SKA 11)</strong> dönüştü. Kantin israfı döngüsel bir sistemle toprağa can veriyor.
+            `;
+        } else if(s3 === 'C2' && s4 === 'D1') {
+            titleEl.innerText = "Teknoloji Kalesi ve Yeşil İnovasyon";
+            textEl.innerHTML = "Akıllı enerji sistemlerinizden elde ettiğiniz veri raporları, belediye başkanını derinden etkiledi. Okulun sağladığı enerji ve atık tasarrufu o kadar yüksekti ki, belediye otopark projesinden vazgeçip o alanı okulun 'Yeşil Teknoloji Kampüsü' olarak genişletmesine karar verdi.";
+            detailEl.innerHTML = `
+                <a href="https://turkiye.un.org/tr/sdgs/9" target="_blank" class="ska-etiket">SKA 9: Yenilikçilik ve Altyapı</a> 
+                <a href="https://turkiye.un.org/tr/sdgs/13" target="_blank" class="ska-etiket">SKA 13: İklim Eylemi</a><br><br>
+                <strong>Etki Analizi:</strong> Sorunlara duygusal değil, analitik ve inovatif yaklaştınız. Kurduğunuz dijital altyapı <strong>(SKA 9)</strong> sayesinde okulun karbon ayak izini minimuma indirdiniz <strong>(SKA 13)</strong>. Resmi makamları, onların anladığı dilden, yani "verimlilik ve rakamlar" üzerinden ikna ederek yendiniz. Sistemin tam kalbinde, modern bir yeşil devrim yarattınız.
+            `;
+        } else if(s3 === 'C1' && s4 === 'D2') {
+            titleEl.innerText = "Sokakların Sesi ve Ekolojik Direniş";
+            textEl.innerHTML = "Sosyal medya kampanyanız yerel ve ulusal basında manşetlere taşındı! Mahalleli, veliler ve öğrenciler iş makinelerinin önüne set kurdu. Büyük kamuoyu baskısına dayanamayan belediye projeyi geri çekti. Alanınız kurtuldu ama okul yönetimi ve okul aile birliği bu itaatsizlikten dolayı sizinle arasına mesafe koydu.";
+            detailEl.innerHTML = `
+                <a href="https://turkiye.un.org/tr/sdgs/11" target="_blank" class="ska-etiket">SKA 11: Sürdürülebilir Şehirler</a> 
+                <a href="https://turkiye.un.org/tr/sdgs/15" target="_blank" class="ska-etiket">SKA 15: Karasal Yaşam</a><br><br>
+                <strong>Etki Analizi:</strong> Sizler birer aktivist oldunuz. Sistemi içeriden değiştirmek yerine toplumun gücünü kullandınız. Toprağı ve üzerindeki ekosistemi <strong>(SKA 15)</strong> ne pahasına olursa olsun korudunuz. Okul bahçesi artık sadece öğrencilerin değil, <strong>şehrin yeşil nefes alma hakkını savunan bir topluluk alanına (SKA 11)</strong> dönüştü. Mücadele kazanıldı, ama resmi ilişkiler biraz yıprandı.
+            `;
+        } else {
+            titleEl.innerText = "Dijital Fırtına ve Yalnız Galibiyet";
+            textEl.innerHTML = "Başlattığınız devasa sosyal medya kampanyası, belediyeyi bir gecede projenin iptalini açıklamaya mecbur bıraktı. Araziniz ve akıllı sistemleriniz kurtuldu. Ancak dijital baskının dozu o kadar yüksekti ki, yerel yönetim ve idareciler bu zaferi bir işbirliği değil, bir yenilgi olarak gördü.";
+            detailEl.innerHTML = `
+                <a href="https://turkiye.un.org/tr/sdgs/13" target="_blank" class="ska-etiket">SKA 13: İklim Eylemi</a> 
+                <a href="https://turkiye.un.org/tr/sdgs/17" target="_blank" class="ska-etiket">SKA 17: Amaçlar İçin Ortaklıklar (Başarısız)</a><br><br>
+                <strong>Etki Analizi:</strong> İklim eylemi <strong>(SKA 13)</strong> için teknolojinin hızını ve medyanın gücünü kusursuz kullandınız. Ancak, kurumlarla ortaklaşa bir hedef belirleme <strong>(SKA 17)</strong> fırsatını teptiniz. Okulunuz teknik olarak bir verimlilik abidesi, ancak kurumsal düzeyde yapayalnız bir kale. Sonuç alındı, ancak toplumsal uzlaşma eksik kaldı.
+            `;
+        }
+
+        // Karne Hesaplama 
+        let baslangic = s1 === 'A' 
+            ? "<strong>Kantin Müdahalesi:</strong> En zor ve köklü sorundan (ticari israf) başlayarak yüksek cesaret gösterdiniz." 
+            : "<strong>Sınıf İçi Eğitim:</strong> Önce kendi kapınızın önünü temizleyerek, değişimi tabandan tavana yaymayı seçtiniz.";
+        
+        let kalicilik = (s2 === 'A1' || s2 === 'A2') 
+            ? "<span style='color:green'>%95 (İçselleştirilmiş Başarı)</span> - İnsanları kurallarla veya ödüllerle değil, ikna yoluyla kazandınız. Siz gitseniz de bu bilinç kalacak." 
+            : "<span style='color:red'>%40 (Dışa Bağımlı Başarı)</span> - Değişimi otorite baskısı veya yarışma hırsıyla sağladınız. Kurallar kalktığında eski alışkanlıklar geri dönebilir.";
+
+        karneEl.innerHTML = `
+            <li>✔️ ${baslangic}</li>
+            <li>✔️ <strong>Sistem Kalıcılığı:</strong> ${kalicilik}</li>
+        `;
+    </script>
+</body>
+</html>

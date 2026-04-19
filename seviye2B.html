@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>SEVİYE 2B: Sınıfın Sınavı</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <img id="scene-image" src="classroom.png" alt="Sınıf Geri Dönüşüm">
+        <div id="story-content">
+            <h2>Öğrencilerin Büyük Sınavı</h2>
+            <p>Zeynep, koridorlara koydukları yeni geri dönüşüm kutularının halini görünce omuzları çöktü. Kağıt kutusunun içine elma koçanları atılmıştı. Bütün hafta boyunca sınıflarda yaptıkları sunumlar sanki hiç işe yaramamış gibiydi. </p>
+            <div class="dialogue zeynep"><strong>Zeynep:</strong> "Kimsenin umurunda değil. Atık kutularını koyduk ama sadece dekor gibi duruyorlar, üzerindeki etiketlerin sanki hiç anlamı yokmuş gibi. Onlar için tüm atık kutuları sadece basit birer Çöp Kutusu."</div>
+            <div class="dialogue mert"><strong>Mert:</strong> "Çünkü onlara bir neden vermedik. İşin içine biraz heyecan ve motivasyon katmamız lazım."</div>
+        </div>
+        <button class="choice-btn" onclick="secimYap('seviye3.html', 's2', 'A2')">A: Gönüllülerle Çalış – Her sınıftan 'Eko-Temsilciler' seçip düzeni onlara emanet et.</button>
+        <button class="choice-btn" onclick="secimYap('seviye3.html', 's2', 'B2')">B: Büyük Rekabet – Ödüllü 'En Temiz Sınıf' yarışması başlat.</button>
+    </div>
+    <script>
+        function secimYap(hedef, key, value) {
+            const urlParams = new URLSearchParams(window.location.search);
+            urlParams.set(key, value);
+            window.location.href = hedef + '?' + urlParams.toString();
+        }
+    </script>
+</body>
+</html>

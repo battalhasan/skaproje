@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>SEVİYE 2A: Kantin Mücadelesi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <img id="scene-image" src="canteen.png" alt="Kantin Mücadelesi">
+        <div id="story-content">
+            <h2>Kantin Mücadelesi</h2>
+            <p>Kantin işletmecisi Kamil Bey ile görüşme pek yapıcı geçmedi, Kamil Bey kollarını göğsünde kavuşturmuş, Eko Timi'nin anlattıklarını nezaketen dinliyormuş gibi yaptı. Ama vücut dili, söylenenleri önemsemediğini açıkca gösteriyordu.  </p>
+            <div class="dialogue kamil"><strong>Kamil Bey:</strong> "Bakın çocuklar, ben burada ticaret yapıyorum. Porsiyonu küçültürsem öğrenci doymaz. Paketleme için plastik yerine kağıt kullanırsam maliyetler artar, satışlar düşer. Ayrıca çöpe giden benim param, sizi neden rahatsız ediyor?"</div>
+            <div class="dialogue mert"><strong>Mert:</strong> "Çöpe giden sadece sizin paranız değil Kamil Bey, bizim geleceğimiz. Geleceğimiz için elbette harakete geçeceğiz."</div>
+        </div>
+        <button class="choice-btn" onclick="secimYap('seviye3.html', 's2', 'A1')">A: Kanıtlarla Konuş – Bir hafta boyunca kantin çöplerini analiz edip çöpe giden parayı hesapla.</button>
+        <button class="choice-btn" onclick="secimYap('seviye3.html', 's2', 'B1')">B: Yönetim Baskısı – Müdüre git ve kantin sözleşmesine atık yönetimi ile ilgili kural eklemeye zorla.</button>
+    </div>
+    <script>
+        function secimYap(hedef, key, value) {
+            const urlParams = new URLSearchParams(window.location.search);
+            urlParams.set(key, value);
+            window.location.href = hedef + '?' + urlParams.toString();
+        }
+    </script>
+</body>
+</html>

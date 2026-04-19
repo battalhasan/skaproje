@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LEVEL 2B: The Students' Big Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <img id="scene-image" src="classroom.png" alt="Classroom Recycling">
+        <div id="story-content">
+            <h2>The Students' Big Test</h2>
+            <p>Zeynep's shoulders slumped when she saw the state of the new recycling bins they had placed in the hallways. Apple cores had been thrown into the paper bin. It was as if the presentations they had made in classrooms all week hadn't mattered at all. [cite: 23]</p>
+            <div class="dialogue zeynep"><strong>Zeynep:</strong> "No one cares. We placed the waste bins, but they just stand there like decorations; it's as if the labels on them have no meaning. To them, all the waste bins are just simple Trash Cans." [cite: 23]</div>
+            <div class="dialogue mert"><strong>Mert:</strong> "Because we haven't given them a reason. We need to add some excitement and motivation to the mix." [cite: 25]</div>
+        </div>
+        <button class="choice-btn" onclick="secimYap('level3_en.html', 's2', 'A2')">A: Work with Volunteers – Select 'Eco-Representatives' from each class and entrust the order to them. </button>
+        <button class="choice-btn" onclick="secimYap('level3_en.html', 's2', 'B2')">B: Great Competition – Start an award-winning 'Cleanest Class' competition. </button>
+    </div>
+    <script>
+        function secimYap(hedef, key, value) {
+            const urlParams = new URLSearchParams(window.location.search);
+            urlParams.set(key, value);
+            window.location.href = hedef + '?' + urlParams.toString();
+        }
+    </script>
+</body>
+</html>

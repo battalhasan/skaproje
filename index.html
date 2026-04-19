@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2030 Dünyası - TÜBİTAK 4006</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Sayfa içeriğini ortalamayı garantiye alan yedek body ayarı */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .intro-container {
+            max-width: 800px;
+            width: 100%;
+            background-color: var(--card-bg, #ffffff);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 20px auto; /* Sağ ve sol boşlukları otomatik eşitleyerek ortalar */
+        }
+
+        .logo-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .logo-row img {
+            max-height: 100px;
+            max-width: 40%;
+            object-fit: contain;
+        }
+
+        .project-title {
+            text-align: center;
+            color: var(--primary-color, #27ae60);
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .info-section {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--primary-color, #27ae60);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .lang-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .btn-tr { background-color: #27ae60; }
+        .btn-en { background-color: #2980b9; }
+        .btn-tr:hover { background-color: #219653; }
+        .btn-en:hover { background-color: #1f618d; }
+
+        .lang-btn {
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            font-weight: bold;
+            flex: 1;
+            max-width: 250px;
+        }
+        .lang-btn:hover { transform: translateY(-3px); }
+    </style>
+</head>
+<body>
+
+    <div class="intro-container">
+        <div class="logo-row">
+            
+            <img src="tubitak_logo.png" alt="TÜBİTAK 4006 Logosu">
+            <img src="ska_banner_logo.png" alt="Sürdürülebilir Kalkınma Amaçları">
+			<img src="kurum_logo.png" alt="Kurum Logosu">
+        </div>
+
+        <h1 class="project-title">2030 Dünyası Senin Seçimlerinle Şekilleniyor</h1>
+        
+        <p style="text-align: center; font-size: 1.1em; color: #555;">
+            Bu etkileşimli hikaye, <strong>2025-2026 Eğitim Öğretim Yılı Edremit Bilim ve Sanat Merkezi TÜBİTAK 4006 Bilim Fuarı</strong> kapsamında hazırlanmıştır. 
+            Amacımız, günlük hayatta aldığımız bireysel kararların küresel iklim değişikliği ve yaşadığımız şehirler üzerindeki etkilerini somut bir şekilde göstermektir.
+        </p>
+
+        <div class="info-section">
+            <h3 style="margin-top: 0; color: #2c3e50;">🌍 Sürdürülebilir Kalkınma Amaçları (SKA) Nedir?</h3>
+            <p>
+                Birleşmiş Milletler Üye Devletleri tarafından 2015 yılında kabul edilen 2030 Gündemi, yoksulluğu ortadan kaldırmak, gezegenimizi korumak ve tüm insanların barış ve refah içinde yaşamasını sağlamak için oluşturulmuş <strong>17 evrensel eylem çağrısıdır.</strong>
+            </p>
+			<a href="https://turkiye.un.org/tr/sdgs#sdg-icons" target="_blank"><img src="hedefler.png" alt="Kalkınma Hedefleri" width="775" height="420"></a>
+			
+            <p>
+                Hikayemiz boyunca yapacağınız seçimler özellikle <em> <strong>SKA 11 (Sürdürülebilir Şehirler) </strong></em>, <em><strong>SKA 12 (Sorumlu Tüketim)</strong></em> ve <em><strong>SKA 13 (İklim Eylemi)</strong></em> etrafında şekillenecektir.
+            </p>
+            <a href="https://turkiye.un.org/tr/sdgs" target="_blank" style="color: var(--primary-color, #27ae60); font-weight: bold; text-decoration: none;">
+                👉 SKA'lar hakkında detaylı bilgi almak için tıklayın.
+            </a>
+        </div>
+
+        <h3 style="text-align: center; margin-top: 30px; margin-bottom: 10px;">Lütfen Dil Seçiniz / Please Select Language</h3>
+        
+        <div class="lang-row">
+            <button class="lang-btn btn-tr" onclick="window.location.href='seviye1.html'">TÜRKÇE BAŞLA</button>
+            <button class="lang-btn btn-en" onclick="window.location.href='level1_en.html'">START IN ENGLISH</button>
+        </div>
+		
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>SEVİYE 4: Büyük Kriz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <img id="scene-image" src="" alt="Kurulan Sistem">
+        <div id="story-content">
+            <h2>Büyük Kriz</h2>
+            <p>Okul Aile Birliği'nin desteğiyle bulunan sponsorlar hem akıllı sistemlerin kurulumunda hem de permakültür bahçesinin oluşturulmasında yardımcı oldular. Her şey yolunda giderken belediyeden gelen bir haber şok etkisi yarattı: Okulun bitişiğindeki yeşil alan, özel bir otopark projesi için satışa çıkarılmıştı. Eko Timi'nin emekleri tehlikeye girmişti.</p>
+            <div class="dialogue mert"><strong>Mert:</strong> "Tamam, mahallemizde otopark sorunu var ama yine de tüm emeklerimizin beton yığını için feda ediliyor olmasını kabul edemiyorum."</div>
+            <div class="dialogue zeynep"><strong>Zeynep:</strong> "Pes etmek yok arkadaşlar! Ya hukuki süreç başlatacağız, ya da halk desteğiyle sosyal medyada bir kampanya yürüteceğiz."</div>
+        </div>
+        <button class="choice-btn" onclick="secimYap('sonuc.html', 's4', 'D1')">A: Hukuk Yolu – Resmi makamlara rapor hazırlayıp hukuki süreç başlat.</button>
+        <button class="choice-btn" onclick="secimYap('sonuc.html', 's4', 'D2')">B: Toplum Desteği – Yaratıcı bir sosyal medya kampanyasıyla belediyeyi vazgeçmeye zorla.</button>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const s3 = urlParams.get('s3');
+        document.getElementById('scene-image').src = s3 === 'C1' 
+            ? "back to earth.png" 
+            : "Technology and Efficiency.png";
+
+        function secimYap(hedef, key, value) {
+            urlParams.set(key, value);
+            window.location.href = hedef + '?' + urlParams.toString();
+        }
+    </script>
+</body>
+</html>
